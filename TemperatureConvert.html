@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <HEAD>
+        <TITLE>Temperature Convert</TITLE>
+        <script src="js/jquery.min.js"></script>
+    </HEAD>
+    <BODY>
+        <CENTER>
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="celsius"    id="celsius" ></input>
+                    </td>
+                    <td>
+                        <label>Celsius = </label>
+                    </td>
+                    <td>
+                        <input type="text" name="fahrenheit" id="fahrenheit" ></input>
+                    </td>
+                    <td>
+                        <label>Fahrenheit</label>
+                    </td>
+                </tr>
+            </table>
+        </CENTER>
+    </BODY>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var celsius     = document.getElementById("celsius");
+            var fahrenheit  = document.getElementById("fahrenheit");
+
+            celsius.addEventListener("input", function(){
+                if ($('#celsius').val().length > 0) {
+                    var fahrenheit = ($('#celsius').val() * (9/5) ) + 32;
+                    $('#fahrenheit').val(fahrenheit.toFixed(2));
+                } else
+                    $('#fahrenheit').val("");
+            }, false);
+
+            fahrenheit.addEventListener("input", function(){
+                if ($('#fahrenheit').val().length > 0) {
+                    var celsius = ($('#fahrenheit').val() - 32) * (5/9);
+                    $('#celsius').val(celsius.toFixed(2));
+                } else
+                    $('#celsius').val("");
+            }, false);
+        });
+    </script>
+</HTML>
